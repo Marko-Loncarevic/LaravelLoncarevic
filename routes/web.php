@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClanakController;
+use App\Http\Controllers\VijestiController;
+use App\Http\Controllers\BlogController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -297,3 +301,34 @@ Route::get('/raspored', function () {
         'aktivnaStrana' => 'raspored'
     ]);
 });
+
+
+
+//zadatak 3
+
+
+
+
+// Ruta koja koristi Controller
+// Ručno imenovanje
+Route::get('/vijesti', [VijestiController::class, 'index'])->name('vijesti.index');
+Route::get('/vijesti/{id}', [VijestiController::class, 'show'])->name('vijesti.show');
+
+// Resource rute automatski dobiju ime: clanci.index, clanci.show...
+Route::resource('clanci', ClanakController::class);
+
+Route::get('/blog',       [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{id}',  [BlogController::class, 'show'])->name('blog.show');
+
+use App\Http\Controllers\KnjigaController;
+
+Route::get('/knjige', [KnjigaController::class, 'index'])->name('knjige.index');
+
+use App\Http\Controllers\FilmController;
+
+Route::get('/filmovi', [FilmController::class, 'index'])->name('filmovi.index');
+Route::get('/filmovi/{id}', [FilmController::class, 'show'])->name('filmovi.show');
+
+use App\Http\Controllers\ReceptyController;
+
+Route::resource('recepti', ReceptyController::class);
