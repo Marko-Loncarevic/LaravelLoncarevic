@@ -332,3 +332,7 @@ Route::get('/filmovi/{id}', [FilmController::class, 'show'])->name('filmovi.show
 use App\Http\Controllers\ReceptyController;
 
 Route::resource('recepti', ReceptyController::class);
+
+
+
+//zapoceo blok4, promijenio env
