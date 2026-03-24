@@ -193,3 +193,107 @@ Route::get('/knjige', function () {
 
     return view('knjige', compact('knjige','procitano','ukupno'));
 });
+
+
+Route::get('/', function () {
+    $pages = [
+        [
+            'name' => 'Automobili',
+            'description' => 'Vroom vroom.',
+            'route' => '/automobili'
+        ],
+        [
+            'name' => 'Povrce',
+            'description' => 'Povrce',
+            'route' => '/povrce'
+        ],
+        [
+            'name' => 'O meni',
+            'description' => 'Bok, ja sam Marko.',
+            'route' => '/omeni'
+        ],
+    ];
+
+    return view('home', [
+        'pages' => $pages,
+        'aktivnaStrana' => 'pocetna'
+    ]);
+});
+
+Route::get('/blog', function () {
+    $clanci = [
+        ['id' => 1, 'naslov' => 'Uvod u Laravel', 'kategorija' => 'PHP', 'ocjena' => 5],
+        ['id' => 2, 'naslov' => 'Baze podataka', 'kategorija' => 'SQL', 'ocjena' => 4],
+    ];
+
+    return view('blog', [
+        'clanci' => $clanci,
+        'aktivnaStrana' => 'blog'
+    ]);
+});
+
+Route::get('/o-nama', function () {
+    return view('o-nama', [
+        'tim' => [
+            ['ime' => 'Ana Horvat',  'uloga' => 'Voditeljica projekta'],
+            ['ime' => 'Marko Babić', 'uloga' => 'Backend developer'],
+        ],
+        'aktivnaStrana' => 'onama'
+    ]);
+});
+
+Route::get('/automobili', function () {
+    $automobili = [
+        ['id'=>1,'marka'=>'VW','model'=>'Golf','godina'=>2022],
+    ];
+
+    return view('automobili', [
+        'automobili' => $automobili,
+        'aktivnaStrana' => 'automobili'
+    ]);
+});
+
+Route::get('/studenti', function () {
+    $studenti = [
+        ['ime'=>'Ana Horvat', 'smjer'=>'Informatika', 'polozio'=>true],
+    ];
+
+    return view('studenti', [
+        'studenti' => $studenti,
+        'aktivnaStrana' => 'studenti'
+    ]);
+});
+
+Route::get('/kontakt', function () {
+    return view('kontakt', [
+        'aktivnaStrana' => 'kontakt'
+    ]);
+});
+
+Route::get('/knjige', function () {
+    $knjige = [
+        ['naslov'=>'1984','autor'=>'George Orwell','godina'=>1949,'procitana'=>true],
+    ];
+
+    return view('knjige', [
+        'knjige' => $knjige,
+        'aktivnaStrana' => 'knjige'
+    ]);
+});
+
+
+Route::get('/raspored', function () {
+
+    $raspored = [
+        'Ponedjeljak' => ['Matematika', 'Hrvatski', 'Engleski'],
+        'Utorak'      => ['Fizika', 'Kemija', 'Biologija'],
+        'Srijeda'     => ['Informatika', 'Povijest', 'Geografija'],
+        'Četvrtak'    => ['Likovni', 'Glazbeni', 'Tjelesni'],
+        'Petak'       => ['Matematika', 'Informatika', 'Sat razrednika'],
+    ];
+
+    return view('raspored', [
+        'raspored' => $raspored,
+        'aktivnaStrana' => 'raspored'
+    ]);
+});

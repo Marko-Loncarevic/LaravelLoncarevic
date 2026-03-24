@@ -22,11 +22,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Početna</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/o-nama">O nama</a></li>
-                </ul>
+                <<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link {{ ($aktivnaStrana ?? '') == 'pocetna' ? 'active' : '' }}" href="/">
+            Početna
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ ($aktivnaStrana ?? '') == 'blog' ? 'active' : '' }}" href="/blog">
+            Blog
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ ($aktivnaStrana ?? '') == 'onama' ? 'active' : '' }}" href="/o-nama">
+            O nama
+        </a>
+    </li>
+</ul>
             </div>
         </div>
     </nav>
